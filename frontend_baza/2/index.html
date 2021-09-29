@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homework2</title>
+    </head>
+<body>
+    <script>
+        'use strict'
+function DZ1(){
+
+//пример 1
+let a = 1, b = 1, c, d;
+c = ++a;
+alert(c); // ответ: 2
+//c= 1+1=2(сначала 1 прибавляется к а)
+
+//пример 2
+d = b++;
+alert(d); //ответ: 1
+//d изначально = 0
+//потом d = b 
+//потом уже b + 1, итого b = 2
+
+//пример 3
+c = 2 + ++a;
+alert(c); //ответ: 5
+//а из первого примера равен 2
+//потом а=1+а(2)=3
+//потом 2+ 3=5
+
+//пример 4
+d = 2 + b++;
+//из второго примера b=1+1=2
+//d = 2+2=4
+//потом b=2+1=3
+//а из 3 примера = 3
+alert(d); //ответ: 4
+alert(a); //3
+alert(b); //3
+}
+
+function DZ2(){
+    let a = 2;
+    let x = 1 + (a *= 2);
+    //a = 2*2=4
+    //x = 1 + 4=5
+}
+
+
+function DZ3(){
+    let a =+prompt("Введите число а");
+    let b =+prompt("Введите число b");
+    //let result = (a>=0 && b>= 0) ? console.log(a-b) : console.log(a*b);
+
+    if (a>=0 && b>=0){
+        console.log(a - b);
+    }
+    else if(a<0 && b<0){
+        console.log(a*b);
+    }
+    else if(a>=0 && b<0){
+        console.log(a+b);
+    }
+    else if(a<0 && b>=0){
+        console.log(a+b);    
+    }
+// или написать else{console.log(a+b)} - все остальные значения
+}
+
+
+function rowinfo(){
+    a =+prompt("Введите число а");
+    b =+prompt("Введите число b");
+}
+
+let a=5,b=2;
+function plus(a, b){
+    return a + b;
+}
+
+function minus(a, b){
+    return a - b;
+}
+
+function multi(a, b){
+   return a * b;
+}
+
+function delen(a, b){
+   return a / b;
+}
+
+
+
+
+function mathOperation(arg1, arg2, operation){
+    switch(operation){
+        case plus:
+    return arg1 + arg2;
+    break;
+    
+        case minus:
+    return arg1 - arg2;
+    break;
+
+        case multi:
+    return arg1 * arg2;
+    break;
+
+        case delen:
+    return arg1 / arg2;
+    break;
+    }
+}
+
+
+
+
+function HR(number, one, two, five){
+number = Math.abs(number);
+    number %= 100;
+    if (number >= 5 && number <= 20) {
+        return five;
+    }
+    number %= 10;
+    if (number == 1) {
+        return one;
+    }
+    if (number >= 2 && number <= 4) {
+        return two;
+    }
+    return five;
+}
+HR(300, 'рубль будет зачислен на ваш счёт', 'рубля будет зачислено на ваш счёт', 'рублей будет зачислено на ваш счёт');
+    </script>
+
+<button style="padding:40px;" onclick="DZ3()">DZ3</button>
+<button style="padding: 40px;" onclick="DZ4()">DZ4</button>
+
+</body>
+
+
+
+
+
+</html>
