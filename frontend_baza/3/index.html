@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        'use strict';
+        let clients = ['Василий', 'Семен', 'Екатерина', 'Владимир', 'Валентина'];
+        let vLetterClients = clients.filter(function(client) {
+            if (client.charAt(0) == "В")
+                return client;
+
+        });
+
+        const myArr = [9, 3, 4];
+        // console.table(myArr.__proto__)
+        myArr.forEach(e => {
+            console.log(e - 0.35);
+        })
+
+        let arr = ['hello', 'world'];
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i])
+        }
+
+        let array = [13, 1235, 15, 123];
+        console.log(Object.getOwnPropertyNames())
+
+
+        function name() {
+            let b = 20;
+            console.log(b)
+        }
+
+        function nas() {
+            console.log(b);
+            let b = 111;
+        }
+
+        name();
+        nas();
+
+        const numbers = [3, 800, 304, 29, 1073, 142];
+        let maxNumber = numbers[0];
+        numbers.forEach(e => {
+            if (e > maxNumber) {
+                maxNumber = e;
+
+            }
+        })
+        console.log(maxNumber);
+
+        const nums = [4, 1093, 38, 8, 75];
+        let newNums = nums.map((e) => {
+            return e += 10;
+        });
+        console.log(newNums);
+
+
+        const str1 = 'lorem ipsum dolor sit amet asdas dsajoh asdfjh'
+        const arrayStr1 = str1.split(' ');
+        console.log(arrayStr1);
+        let result = arrayStr1.map((word) => {
+            console.log(word.charAt(0).toUpperCase());
+            return word = word.charAt(0).toUpperCase();
+        });
+        console.log(result);
+
+
+        for (let i = 0; i <= 10; i++) {
+            if (i == 0) {
+                console.log(`${i}-ноль`)
+            }
+            if (i % 2 == 0 && i != 0) {
+                console.log(`${i}-четное`)
+            }
+            if (i % 2 == 1) {
+                console.log(`${i}-нечетное`)
+            }
+        }
+
+
+        const post = {
+            author: "John", //вывести этот текст
+            postId: 23,
+            comments: [{
+                userId: 10,
+                userName: "Alex",
+                text: "lorem ipsum",
+                rating: {
+                    likes: 10,
+                    dislikes: 2 //вывести это число
+                }
+            }, {
+                userId: 5, //вывести это число
+                userName: "Jane",
+                text: "lorem ipsum 2", //вывести этот текст
+                rating: {
+                    likes: 3,
+                    dislikes: 1
+                }
+            }, ]
+        }
+
+        console.log(post["author"]);
+        console.log(post.comments[0]["rating"]["dislikes"]);
+        console.log(post.comments[1]["userId"]);
+        console.log(post.comments[1]["text"]);
+
+
+        for (let key in post) {
+            // console.log(key + ':' + post[key]);
+
+        }
+
+
+
+
+
+
+
+        var arr = ["Есть", "жизнь", "на", "Марсе"];
+        let newArr = arr.map(element => {
+            return element.length;
+        });
+        console.log(newArr);
+
+
+        const products = [{
+            id: 3,
+            price: 200,
+        }, {
+            id: 4,
+            price: 900,
+        }, {
+            id: 1,
+            price: 1000,
+        }, ];
+
+        products.forEach(product => {
+            product.price = product.price - product.price * 0.15
+        })
+        console.log(products);
+
+
+
+        const products = [{
+            id: 3,
+            price: 127,
+            photos: [
+                "1.jpg",
+                "2.jpg",
+            ]
+        }, {
+            id: 5,
+            price: 499,
+            photos: []
+        }, {
+            id: 10,
+            price: 26,
+            photos: [
+                "3.jpg"
+            ]
+        }, {
+            id: 8,
+            price: 78,
+        }, ];
+
+
+        let newArr = products.filter(item => {
+            if ('photos' in item && item.photos.length > 0)
+                console.log(item.photos)
+        })
+        console.log(newArr);
+
+
+        let mas = [1, 53, 23562, 563, 3, 35476, 4658, 48576, 48758]
+        mas.sort((a, b) => {
+            return a - b
+        })
+        console.log(mas);
+
+        products.sort((a, b) => {
+            return a.price - b.price;
+        });
+        console.log(products)
+
+
+        for (let i = 0; i < 10; console.log(i++)) {}
+
+
+        let output = '';
+        for (let j = 0; j < 20; j++) {
+            console.log(output += 'x')
+        }
+    </script>
+</body>
+
+</html>
