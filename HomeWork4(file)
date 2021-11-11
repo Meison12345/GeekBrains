@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3 {
+            width: 700px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .center {
+            padding: 0 calc(50% - 500px);
+        }
+
+        .main__wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0px;
+        }
+
+        .main__link {
+            text-decoration: none;
+
+        }
+
+    </style>
+</head>
+<?php
+$masImg = ['https://placehold.it/1000x1000', 'https://placehold.it/1500x1500', 'https://placehold.it/2000x2000', 'https://placehold.it/800x1800'];
+?>
+<h3>
+    1. Создать галерею фотографий. Она должна состоять всего из одной странички, на которой пользователь видит все картинки в уменьшенном виде и форму для загрузки нового изображения. При клике на фотографию она должна открыться в браузере в новой вкладке. Размер картинок можно ограничивать с помощью свойства width. При загрузке изображения необходимо делать проверку на тип и размер файла.
+</h3>
+<div class="center main__wrapper">
+    <a href="img/1.jpg" target="_blank" class="main__link">
+        <img src="img/1.jpg" alt="foto" width="200" height="200">
+    </a>
+    <a href="img/2.jpg" target="_blank" class="main__link">
+        <img src="img/2.jpg" alt="foto" width="200" height="200">
+    </a>
+    <a href="img/3.jpg" target="_blank" class="main__link">
+        <img src="img/3.jpg" alt="foto" width="200" height="200">
+    </a>
+    <a href="img/4.jpg" target="_blank" class="main__link">
+        <img src="img/4.jpg" alt="foto" width="200" height="200">
+    </a>
+</div>
+<h3>
+    *Строить фотогалерею, не указывая статичные ссылки к файлам, а просто передавая в функцию построения адрес папки с изображениями. Функция сама должна считать список файлов и построить фотогалерею со ссылками в ней.
+</h3>
+<div class="center main__wrapper">
+    <?php
+    $img = scandir('img/' . $image);
+    // unset($img[0], $img[1]); 
+    foreach ($img as $image) {
+        if (is_file('img/' . $image)) {
+    ?>
+
+            <a href="img/<?php echo $image; ?>" target="_blank" class="main__link">
+                <img src="img/<?php echo $image; ?>" alt="foto" width="200" height="200">
+            </a>
+
+    <?php
+        }
+    }
+    ?>
+</div>
+
+<h3>
+    3. *[ для тех, кто изучал JS-1 ] При клике по миниатюре нужно показывать полноразмерное изображение в модальном окне (материал в помощь: http://dontforget.pro/javascript/prostoe-modalnoe-okno-na-jquery-i-css-bez-plaginov/)
+</h3>
+<div class="center main__wrapper">
+    <img src="<? echo $masImg[0] ?>" alt="foto" width="200" class="img__link" height="200">
+    <img src="<? echo $masImg[1] ?>" alt="foto" width="200" class="img__link" height="200">
+    <img src="<? echo $masImg[2] ?>" alt="foto" width="200" class="img__link" height="200">
+    <img src="<? echo $masImg[3] ?>" alt="foto" width="200" class="img__link" height="200">
+</div>
+<img class='modal'></img>
+
+<script>
+    'use strict';
+    let bnt_link = document.querySelectorAll('.img__link');
+    let block = document.querySelector('.modal');
+    bnt_link.forEach(function(el) {
+        el.addEventListener('click', function(event)  {
+            console.log(this.getAttribute('src'));
+            block.setAttribute('src', `${this.getAttribute('src')}`)
+        })
+    })
+</script>
+</body>
+
+</html>
