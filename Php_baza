@@ -1,0 +1,86 @@
+<?php
+//3. Объяснить, как работает данный код:
+    $a = 5;
+    $b = '05';
+    var_dump($a == $b);         // Почему true?
+    //b приводиться к числу(Сравнивается число с числом),сравненение не строгое(Если бы было ===, тогда false, тут бы сравнивалися типы данных, а вот они уже разные) 
+    var_dump((int)'012345');     // Почему 12345?
+    //Строка приводиться к целому числу '012345' = 12345
+    var_dump((float)123.0 === (int)123.0); // Почему false?
+    //Типы разные и при строгом сравнении будет false, а если бы было ==, то было бы true(сравнивались бы только числа)
+    var_dump((int)0 === (int)'hello, world'); // Почему true?
+    //Если бы строка начиналась с цифр, то тогда бы эти цифры были бы преобразованы в число, остальное отбросилось. Но если строка начинается не с цифры, тогда в целом представлении оно будет равно 0
+
+    // $da = +'as23d';
+    // echo $da;
+?>
+
+
+<?php
+//5. *Используя только две переменные, поменяйте их значение местами. 
+$a = 1;
+$b = 2;
+
+$a = $b + $a;
+$b = $a - $b;
+$a = $a - $b;
+
+echo $b;
+echo $a;
+?>
+
+
+//HomePage
+<!DOCTYPE html>
+<html lang="en">
+<?php
+$masUlName = ['Portein', 'Понравилось', 'Личный кабинет', 'Каталог', 'https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG37.png'];
+$catalogName = ['Товар1', 'Товар2', 'Товар3', 'Товар4', 'Товар5', 'Товар6', 'Товар7', 'Товар8'];
+$title = "HomeWork1";
+$newDate = date("d/m/Y");
+$footerCopy = '&copy Все права защищены';
+?>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $title ?></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="center header">
+            <nav class="nav">
+                <ul class="nav__ul">
+                    <li><a href="index.php" class="nav__ul_link"><?php echo $masUlName[0]; ?></a></li>
+                    <li><a href="#" class="nav__ul_link"><?php echo $masUlName[1]; ?></a></li>
+                    <li><a href="#" class="nav__ul_link"><?php echo $masUlName[2]; ?></a></li>
+                    <li><a href="#" class="nav__ul_link"><?php echo $masUlName[3]; ?></a></li>
+                    <li><a href="#" class="nav__ul_link"><img src="<?php echo $masUlName[4]; ?>" class="cart"></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="center main">
+            <div class="main__wrapper">
+                <a href="#" class="main__wrapper_link"><img src="https://placehold.it/300x300" class="img"><?php echo $catalogName[0]; ?></a>
+                <a href="#" class="main__wrapper_link"><img src="https://placehold.it/300x300" class="img"><?php echo $catalogName[1]; ?></a>
+                <a href="#" class="main__wrapper_link"><img src="https://placehold.it/300x300" class="img"><?php echo $catalogName[2]; ?></a>
+                <a href="#" class="main__wrapper_link"><img src="https://placehold.it/300x300" class="img"><?php echo $catalogName[3]; ?></a>
+                <a href="#" class="main__wrapper_link"><img src="https://placehold.it/300x300" class="img"><?php echo $catalogName[4]; ?></a>
+                <a href="#" class="main__wrapper_link"><img src="https://placehold.it/300x300" class="img"><?php echo $catalogName[5]; ?></a>
+                <a href="#" class="main__wrapper_link"><img src="https://placehold.it/300x300" class="img"><?php echo $catalogName[6]; ?></a>
+                <a href="#" class="main__wrapper_link"><img src="https://placehold.it/300x300" class="img"><?php echo $catalogName[7]; ?></a>
+            </div>
+        </main>
+
+
+        <footer class="center footer">
+            <p class="footer__copy"><?= $footerCopy?></p>
+            <p class="footer__copy"><?= $newDate; ?></p>
+        </footer>
+    </div>
+</body>
+</html>
