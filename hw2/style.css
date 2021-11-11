@@ -1,0 +1,153 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+a {
+  color: black;
+}
+
+.nav__ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.header {
+  background-color: white;
+}
+
+.nav__ul li a {
+  padding: 20px;
+}
+
+.main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  background-color: gray;
+}
+
+.footer {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.cart {
+  width: 32px;
+  height: 32px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.nav__ul_link {
+  font-size: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 35px;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+.center {
+  padding: 0 calc(50% - 700px);
+}
+
+.img {
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+  display: block;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.main {
+  padding-top: 50px;
+}
+
+.footer__copy {
+  text-align: center;
+  padding: 20px;
+}
+
+.main__wrapper_link {
+  margin-bottom: 50px;
+}
+
+@media (max-width: 900px) {
+  .main__wrapper {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .main__wrapper a {
+    -webkit-transform: 0.4s;
+            transform: 0.4s;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav__ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav__ul_link:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .img:hover {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+}
+/*# sourceMappingURL=style.css.map */
