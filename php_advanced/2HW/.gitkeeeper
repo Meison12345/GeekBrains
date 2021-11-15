@@ -1,0 +1,121 @@
+<?php
+
+abstract class Product
+{
+    protected static $cost = 100;
+    abstract public function get_price();
+}
+
+class DigitProduct extends Product
+{
+    public function get_price()
+    {
+        return self::$cost / 2;
+    }
+}
+
+
+
+class ItemProduct extends Product
+{
+    public function get_price()
+    {
+        return self::$cost;
+    }
+}
+
+
+
+class WeightProduct extends Product
+{
+    private $count;
+    public function __constructor()
+    {
+        $this->count = 0;
+    }
+    public function setCount($count)
+    {
+        $this->count = $count;
+    }
+    public function getCount($count)
+    {
+        $this->count = $count;
+    }
+    public function get_price()
+    {
+        return $this->count * self::$cost;
+    }
+}
+
+
+$prod1 = new DigitProduct();
+$prod2 = new ItemProduct();
+$prod3 = new WeightProduct();
+$prod3->setCount(7);
+echo "Стоимость цифрового товара {$prod1->get_price()} <br/>";
+echo "Стоимость штучного товара {$prod2->get_price()} <br/>";
+echo "Стоимость весового товара {$prod3->get_price()} <br/>";
+
+
+
+/**
+ * Реализовать паттерн Singleton при помощи traitsr
+ */
+
+trait Singleton {
+
+	// ограничиваем конструкторы и переопределение магических методов
+	final private function __construct() {
+
+	}
+
+	final protected function __clone() {
+
+	}
+
+	final public function __wakeup() {
+
+	}
+
+	static public function getInstance() {
+		static $instance = null;
+		if (!$instance) {
+			$instance = new self;
+		}
+		return $instance;
+	}
+
+}
+
+class TestSingleton {
+	use Singleton;
+
+	private static $some_settings = array();
+
+	public function setSettings($settings) {
+		self::$some_settings = $settings;
+	}
+
+	public function getSettings() {
+		return implode(', ', self::$some_settings);
+	}
+}
+
+$settings = array(
+	'key1' => 'value1',
+	'key2' => 'value2',
+	'key3' => 'value3',
+	'key4' => 'value4',
+	);
+
+TestSingleton::getInstance()->setSettings($settings);
+
+var_dump(TestSingleton::getInstance()->getSettings());
+
+
+//Что можно вынести в абстрактный класс, наследование?
+/*
+Можно вынести метод, который должен быть у всех классов, но он должен быть реализован по-своему.
+
+
+*/
